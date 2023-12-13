@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const NavigationNav = styled.nav`
   display: flex;
   justify-content: center;
+  gap: 10px;
 `;
 
 export const NavigationLinks = styled(NavLink)`
@@ -16,12 +17,12 @@ export const NavigationLinks = styled(NavLink)`
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 
   &:active {
-    color: #3eb2fd;
-    background-color: #34495e;
+    color: #fff;
+    background-color: #1976d2;
   }
 
   &:hover {
-    color: #3eb2fd;
-    background-color: #34495e;
+    color: #fff;
+    background-color: #1976d2;
   }
 `;

@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { SearchContainer, SearchInput } from './Filter.styled';
+import { SearchContainer } from './Filter.styled';
 import { changeFilter } from 'redux/filter/filterSlice';
 import { selectFilter } from 'redux/filter/filterSelectots';
+import TextField from '@mui/material/TextField';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,16 @@ export const Filter = () => {
   return (
     <SearchContainer>
       <p>Find contacts by name</p>
-      <SearchInput
+
+      <TextField
+        label="Name or number"
+        variant="filled"
         onChange={e => dispatch(changeFilter(e.target.value))}
         type="text"
         value={filter}
+        style={{
+          width: '300px',
+        }}
       />
     </SearchContainer>
   );

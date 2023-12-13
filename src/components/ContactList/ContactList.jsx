@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  PhonebookButton,
+  ItemName,
   PhonebookItem,
   PhonebookList,
   PhonebookNumber,
@@ -8,6 +8,7 @@ import {
 import { Notify } from 'notiflix';
 import { deleteContact } from 'redux/contacts/operations';
 import { filterContacts } from 'redux/contacts/contactSelectors';
+import Button from '@mui/material/Button';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -18,17 +19,17 @@ export const ContactList = () => {
       {contacts.map(item => {
         return (
           <PhonebookItem key={item.id}>
-            <p>
-              {item.name}: <PhonebookNumber>{item.number}</PhonebookNumber>
-            </p>
-            <PhonebookButton
+            <ItemName>{item.name}:</ItemName>
+            <PhonebookNumber>{item.number}</PhonebookNumber>
+            <Button
+              variant="outlined"
               onClick={() => {
                 Notify.info(`${item.name} removed from your phone book`);
                 dispatch(deleteContact(item.id));
               }}
             >
               Delete
-            </PhonebookButton>
+            </Button>
           </PhonebookItem>
         );
       })}
